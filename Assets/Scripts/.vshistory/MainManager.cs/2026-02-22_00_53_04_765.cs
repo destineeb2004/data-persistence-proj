@@ -39,7 +39,7 @@ public class MainManager : MonoBehaviour
             }
         }
         
-        UpdateBestScore();
+        //UpdateBestScore();
     }
 
     private void Update()
@@ -71,6 +71,7 @@ public class MainManager : MonoBehaviour
     {
         m_Points += point;
         ScoreText.text = $"Score : {m_Points}";
+        //SaveData.instance.playerHighScore = m_Points;
     }
 
     public void GameOver()

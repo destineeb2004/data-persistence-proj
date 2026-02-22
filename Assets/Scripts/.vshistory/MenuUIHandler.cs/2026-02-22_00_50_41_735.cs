@@ -28,8 +28,6 @@ public class MenuUIHandler : MonoBehaviour
 
     public void NewGame()
     {
-        SaveData.instance.playerName = nameField.text;
-
         if(SaveData.instance.playerName == null || SaveData.instance.playerName == "")
         {
             Debug.Log("Name can't be null!");

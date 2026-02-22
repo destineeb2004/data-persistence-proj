@@ -39,7 +39,7 @@ public class MainManager : MonoBehaviour
             }
         }
         
-        UpdateBestScore();
+        UpdateBestScore(SaveData.instance.prevPlayerName);
     }
 
     private void Update()
@@ -82,14 +82,14 @@ public class MainManager : MonoBehaviour
             SaveData.instance.playerHighScore = m_Points;
 
             SaveData.instance.SaveHighScore();
-            UpdateBestScore();
+            UpdateBestScore(SaveData.instance.playerName);
         }
         
     }
 
-    public void UpdateBestScore()
+    public void UpdateBestScore(string name)
     {
-        bestScore.text = "Best Score: " + SaveData.instance.playerName + " -- " + SaveData.instance.playerHighScore;
+        bestScore.text = "Best Score: " + name + " -- " + SaveData.instance.playerHighScore;
     }
 
     

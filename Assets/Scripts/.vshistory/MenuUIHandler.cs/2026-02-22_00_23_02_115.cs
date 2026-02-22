@@ -12,24 +12,22 @@ public class MenuUIHandler : MonoBehaviour
 {
 
     public TMP_InputField nameField;
-    public TextMeshProUGUI please;
+    public TextMeshPro please;
 
-    //public void NameChanged(string name)
-    //{
-    //    SaveData.instance.playerName = name;
-    //}
+    public void NameChanged(string name)
+    {
+        SaveData.instance.playerName = name;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //nameField.onValueChanged.AddListener(NameChanged);
+        nameField.onValueChanged.AddListener(NameChanged);
     }
 
 
     public void NewGame()
     {
-        SaveData.instance.playerName = nameField.text;
-
         if(SaveData.instance.playerName == null || SaveData.instance.playerName == "")
         {
             Debug.Log("Name can't be null!");

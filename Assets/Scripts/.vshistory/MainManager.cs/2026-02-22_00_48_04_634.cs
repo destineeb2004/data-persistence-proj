@@ -38,7 +38,7 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
-        
+        SaveData.instance.LoadHighScore();
         UpdateBestScore();
     }
 
@@ -71,6 +71,7 @@ public class MainManager : MonoBehaviour
     {
         m_Points += point;
         ScoreText.text = $"Score : {m_Points}";
+        //SaveData.instance.playerHighScore = m_Points;
     }
 
     public void GameOver()
