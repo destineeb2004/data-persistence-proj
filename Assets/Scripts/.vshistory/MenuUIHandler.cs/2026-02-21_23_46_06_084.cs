@@ -1,5 +1,4 @@
 using System.IO;
-using TMPro;
 using UnityEditor;
 using UnityEditor.Overlays;
 using UnityEngine;
@@ -11,36 +10,23 @@ using static UnityEngine.LowLevelPhysics2D.PhysicsLayers;
 public class MenuUIHandler : MonoBehaviour
 {
 
-    public TMP_InputField nameField;
-    public TextMeshPro please;
-
-    public void NameChanged(string name)
-    {
-        SaveData.instance.playerName = name;
-    }
+    public InputField nameField;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        nameField.onValueChanged.AddListener(NameChanged);
+        
     }
 
 
     public void NewGame()
     {
-        if(SaveData.instance.playerName == null)
-        {
-            Debug.Log("Name can't be null!");
-            please.gameObject.SetActive(true);
-            Invoke("DisableWarning", 5);
-        }
         SceneManager.LoadScene(1);
+        SavePlayerName();
     }
 
     public void ExitGame()
     {
-        SaveData.instance.SaveHighScore();
-
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else
@@ -48,10 +34,8 @@ public class MenuUIHandler : MonoBehaviour
 #endif
     }
 
-    public void DisableWarning()
+    public void SavePlayerName()
     {
-        please.gameObject.SetActive(false);
+        nameField.text = playerName;
     }
-
-    
 }

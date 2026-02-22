@@ -12,7 +12,6 @@ public class MenuUIHandler : MonoBehaviour
 {
 
     public TMP_InputField nameField;
-    public TextMeshPro please;
 
     public void NameChanged(string name)
     {
@@ -28,12 +27,6 @@ public class MenuUIHandler : MonoBehaviour
 
     public void NewGame()
     {
-        if(SaveData.instance.playerName == null)
-        {
-            Debug.Log("Name can't be null!");
-            please.gameObject.SetActive(true);
-            Invoke("DisableWarning", 5);
-        }
         SceneManager.LoadScene(1);
     }
 
@@ -46,11 +39,6 @@ public class MenuUIHandler : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-
-    public void DisableWarning()
-    {
-        please.gameObject.SetActive(false);
     }
 
     

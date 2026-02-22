@@ -32,7 +32,6 @@ public class MenuUIHandler : MonoBehaviour
         {
             Debug.Log("Name can't be null!");
             please.gameObject.SetActive(true);
-            Invoke("DisableWarning", 5);
         }
         SceneManager.LoadScene(1);
     }
@@ -46,11 +45,6 @@ public class MenuUIHandler : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-
-    public void DisableWarning()
-    {
-        please.gameObject.SetActive(false);
     }
 
     

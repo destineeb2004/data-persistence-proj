@@ -1,5 +1,4 @@
 using System.IO;
-using TMPro;
 using UnityEditor;
 using UnityEditor.Overlays;
 using UnityEngine;
@@ -11,8 +10,7 @@ using static UnityEngine.LowLevelPhysics2D.PhysicsLayers;
 public class MenuUIHandler : MonoBehaviour
 {
 
-    public TMP_InputField nameField;
-    public TextMeshPro please;
+    public InputField nameField;
 
     public void NameChanged(string name)
     {
@@ -28,12 +26,6 @@ public class MenuUIHandler : MonoBehaviour
 
     public void NewGame()
     {
-        if(SaveData.instance.playerName == null)
-        {
-            Debug.Log("Name can't be null!");
-            please.gameObject.SetActive(true);
-            Invoke("DisableWarning", 5);
-        }
         SceneManager.LoadScene(1);
     }
 
@@ -46,11 +38,6 @@ public class MenuUIHandler : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-
-    public void DisableWarning()
-    {
-        please.gameObject.SetActive(false);
     }
 
     
