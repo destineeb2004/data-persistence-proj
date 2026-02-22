@@ -20,9 +20,6 @@ public class MainManager : MonoBehaviour
     
     private bool m_GameOver = false;
 
-    public string PlayerName;
-    public int PlayerHighScore;
-
 
     
     // Start is called before the first frame update
@@ -105,7 +102,7 @@ public class MainManager : MonoBehaviour
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            PlayerName = data.PlayerName;
+            TeamColor = data.TeamColor;
         }
     }
 }

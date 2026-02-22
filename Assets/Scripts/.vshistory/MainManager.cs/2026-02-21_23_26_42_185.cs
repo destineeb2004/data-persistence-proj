@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,9 +18,6 @@ public class MainManager : MonoBehaviour
     private int m_Points;
     
     private bool m_GameOver = false;
-
-    public string PlayerName;
-    public int PlayerHighScore;
 
 
     
@@ -97,7 +93,7 @@ public class MainManager : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
-    public void LoadPlayer()
+    public void LoadColor()
     {
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
@@ -105,7 +101,7 @@ public class MainManager : MonoBehaviour
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            PlayerName = data.PlayerName;
+            TeamColor = data.TeamColor;
         }
     }
 }
