@@ -10,16 +10,20 @@ using static UnityEngine.LowLevelPhysics2D.PhysicsLayers;
 [DefaultExecutionOrder(1000)]
 public class MenuUIHandler : MonoBehaviour
 {
-    public static MenuUIHandler Instance { get; private set; }
+    public static MenuUIHandler instance;
     public TMP_InputField nameField;
     public TextMeshProUGUI please;
 
-    private void Awake()
-    {
-        Instance = this;
+    //public void NameChanged(string name)
+    //{
+    //    SaveData.instance.playerName = name;
+    //}
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        //nameField.onValueChanged.AddListener(NameChanged);
     }
-    
 
 
     public void NewGame()

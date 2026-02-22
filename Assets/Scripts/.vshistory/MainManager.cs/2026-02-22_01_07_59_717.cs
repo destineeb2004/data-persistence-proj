@@ -21,10 +21,14 @@ public class MainManager : MonoBehaviour
     private int m_Points;
     
     private bool m_GameOver = false;
+
+    private MenuUIHandler handler;
     
     // Start is called before the first frame update
     void Start()
     {
+        handler = GameObject.Find("Canvas").GetComponent<MenuUIHandler>();
+
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -83,7 +87,7 @@ public class MainManager : MonoBehaviour
             SaveData.instance.playerHighScore = m_Points;
 
             SaveData.instance.SaveHighScore();
-            MenuUIHandler.Instance.UpdateName();
+            handler.UpdateName();
             UpdateBestScore();
         }
         

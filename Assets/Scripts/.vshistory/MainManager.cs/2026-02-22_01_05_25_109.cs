@@ -21,6 +21,8 @@ public class MainManager : MonoBehaviour
     private int m_Points;
     
     private bool m_GameOver = false;
+
+    private MenuUIHandler handler;
     
     // Start is called before the first frame update
     void Start()
@@ -83,7 +85,7 @@ public class MainManager : MonoBehaviour
             SaveData.instance.playerHighScore = m_Points;
 
             SaveData.instance.SaveHighScore();
-            MenuUIHandler.Instance.UpdateName();
+            handler.UpdateName();
             UpdateBestScore();
         }
         
